@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consumer Companies as a New Socially Responsible Model</title>
+
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #slide0 p {
+      margin-top: 30px;
+    }
+
+    .slide ul {
+      list-style-type: disc;
+      padding-left: 40px;
+    }
+
+    .slide ul ul {
+      list-style-type: circle;
+      padding-left: 20px;
+    }
+
+
+    .slide ul ul li {
+      font-size: 0.8em;
+    }
+
+    * {
+      /* margin: 0;
+    padding: 0; */
+      box-sizing: border-box;
+    }
+
+
+    /* pavadinimas atitrauktas nuo tekto */
+    h1 {
+      padding-bottom: 5vh;
+      padding-top: 2vh;
+    }
+
+    /* sub-pavadinimai atitraukti nuo krasto */
+    h2 {
+      padding-left: 7vw;
+    }
+
+    /* iscentruotas tekstas */
+    .introduction-text {
+      text-align: center;
+    }
+
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+
+
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 1001;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
+      /* transition: background 0.3s; */
+    }
+
+    .hamburger:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.95);
+      overflow-x: hidden;
+      transition: width 0.5s;
+      padding-top: 80px;
+    }
+
+    .side-menu a {
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #fff;
+      display: block;
+      /* transition: background 0.3s, color 0.3s; */
+    }
+
+    .side-menu a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #f1c40f;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      font-size: 40px;
+      cursor: pointer;
+      color: #fff;
+      transition: color 0.3s;
+      margin: 0;
+      padding: 0;
+    }
+
+    .close-btn:hover {
+      color: #f1c40f;
+    }
+
+
+    .slide {
+      /* display: none;  */
+      width: 100%;
+      /* Make each slide take full width */
+      height: 100vh;
+      padding: 80px 60px 10vh 60px;
+      flex-shrink: 0;
+      /* Prevent shrinking */
+      overflow-y: auto;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-color: #1abc9c;
+      /* viena spalva visur */
+    }
+
+    .slides {
+      display: flex;
+      /* Arrange slides horizontally */
+      height: 100vh;
+      width: 100%;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      position: relative;
+      transition: transform 0.5s ease-in-out;
+
+    }
+
+    /* .active-slide {
+      display: block;
+      opacity: 1;
+    } */
+
+
+    /* #slide0 { background: #1abc9c; }
+    #slide1 { background: #3498db; }
+    #slide2 { background: #9b59b6; }
+    #slide3 { background: #e74c3c; }
+    #slide4 { background: #34495e; }
+    #slide5 { background: #16a085; }
+    #slide6 { background: #8e44ad; }
+    #slide7 { background: #c0392b; }
+    #slide8 { background: #2c3e50; } */
+
+
+    .slide h1 {
+      margin-bottom: 20px;
+      font-size: 2.5em;
+      text-align: center;
+    }
+
+    .slide h2 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 2em;
+    }
+
+    .slide p,
+    .slide ul,
+    .slide table {
+      font-size: 1.2em;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto 20px auto;
+    }
+
+    .slide ul {
+      list-style-type: disc;
+      padding-left: 40px;
+    }
+
+
+    .slide table {
+      width: 100%;
+      max-width: 800px;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    .slide table,
+    .slide th,
+    .slide td {
+      border: 1px solid #fff;
+    }
+
+    .slide th,
+    .slide td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    .slide th {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+
+    .nav-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 50px;
+      color: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      user-select: none;
+      z-index: 1001;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .nav-arrow:hover {
+      color: rgba(255, 255, 255, 1);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .left-arrow {
+      left: 20px;
+    }
+
+    .right-arrow {
+      right: 20px;
+    }
+
+    .circle {
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+      transition: font-size 0.3s;
+      opacity: 0.5;
+    }
+
+    .circles-container {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bottom {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #1abc9c;
+      z-index: 100;
+      height: 10vh
+    }
+
+    .circle:hover {
+      font-size: 50px;
+      opacity: 1;
+    }
+
+
+    @media screen and (max-width: 600px) {
+      .nav-arrow {
+        font-size: 40px;
+      }
+
+      .side-menu a {
+        font-size: 20px;
+        padding: 12px 25px;
+      }
+
+      .close-btn {
+        font-size: 35px;
+      }
+
+      .hamburger {
+        font-size: 25px;
+        padding: 8px;
+      }
+
+      .slide h1 {
+        font-size: 2em;
+      }
+
+      .slide h2 {
+        font-size: 1.5em;
+      }
+
+      .slide p,
+      .slide ul,
+      .slide table {
+        font-size: 1em;
+      }
+
+      .circle {
+        font-size: 30px;
+      }
+
+      .circle:hover {
+        font-size: 40px;
+      }
+    }
+
+
+    /* .slide::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .slide::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1); 
+    }
+    
+    .slide::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3); 
+      border-radius: 4px;
+    }
+    
+    .slide::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.5); 
+    } */
+  </style>
+</head>
+
+<body>
+
+
+  <div class="hamburger" id="hamburger" title="Menu">
+    &#9776;
+  </div>
+
+
+  <div class="side-menu" id="sideMenu">
+    <!-- <a href="javascript:void(0)" class="close-btn" id="closeBtn" title="Close Menu">&times;</a> -->
+    <a href="#" data-slide="0">Start</a>
+    <a href="#" data-slide="1">Globalization Issues</a>
+    <a href="#" data-slide="2">Challenges for Small Businesses</a>
+    <a href="#" data-slide="3">Consumer Companies Business Model</a>
+    <a href="#" data-slide="4">Profit Distribution Structure</a>
+    <a href="#" data-slide="5">Comparison of Business Models</a>
+    <a href="#" data-slide="6">Innovative Aspects of CCBM</a>
+    <a href="#" data-slide="7">Legalizing Consumer Companies</a>
+    <a href="#" data-slide="8">Conclusion</a>
+  </div>
+
+  <div class="slides">
+    <div class="slide" id="slide0">
+      <h1>Consumer Companies as a New Socially Responsible Model</h1>
+      <div class="introduction">
+        <p class="introduction-text">Welcome to our comprehensive overview of the Consumer Companies Business Model
+          (CCBM), an innovative approach to socially responsible business practices in the context of globalization.</p>
+      </div>
+    </div>
+
+    <div class="slide" id="slide1">
+      <h1>Key Problems in the Content of Globalization</h1>
+      <ul>
+        <li><strong>Wealth Concentration:</strong> The wealthiest 1% of the global population controls approximately
+          45–50% of the world's wealth (Credit Suisse, Oxfam).</li>
+        <li><strong>Impact of COVID-19 on Wealth Inequality:</strong> Billionaires' wealth grew more during the pandemic
+          than in the previous decade combined. The top 1% increased their wealth more than the bottom 90% combined.
+          (Oxfam).</li>
+        <li><strong>Industries Driving Inequality:</strong> Sectors responsible for the growth of the wealthiest
+          individuals often contribute to climate change and public health issues (e.g., pollution, tobacco, alcohol,
+          and excessive consumerism). The societal costs of these impacts are borne collectively, not by the
+          corporations benefiting from them.</li>
+        <li><strong>Consumer Behavior Manipulation:</strong> Advanced technologies personalize advertisements,
+          influencing consumer decisions to maximize profits.</li>
+        <li><strong>Reduced Market Competition:</strong> The dominance of large corporations reduces competition,
+          leading to higher prices and potentially lower-quality goods and services.</li>
+        <li><strong>Political and Social Influence:</strong> Wealth concentration increases the influence of
+          corporations and the ultra-wealthy in policymaking and societal decisions.</li>
+        <li><strong>Social Inequality:</strong> Corporate profits disproportionately benefit shareholders, while small
+          businesses struggle to share economic benefits with local communities.</li>
+        <li><strong>Challenges for Low-Capital Businesses:</strong> Small and new businesses face significant barriers
+          to entry due to high capital requirements and market concentration.</li>
+      </ul>
+    </div>
+
+    <div class="slide" id="slide2">
+      <h1>Challenges for Socially Responsible Small Businesses</h1>
+      <p>Socially responsible businesses with limited capital face significant challenges in gaining a competitive
+        advantage, particularly against large corporations that dominate global markets.</p>
+
+      <table>
+        <tr>
+          <th>Corporations</th>
+          <th>Small Businesses</th>
+        </tr>
+        <tr>
+          <td>Benefit from economies of scale, producing cheaply.</td>
+          <td>Limited production scale leads to higher costs.</td>
+        </tr>
+        <tr>
+          <td>Access to venture capital for expansion.</td>
+          <td>Limited funding restricts growth opportunities.</td>
+        </tr>
+        <tr>
+          <td>Invest heavily in advanced technologies.</td>
+          <td>Lack resources to adopt cutting-edge innovations.</td>
+        </tr>
+        <tr>
+          <td>Dominate sectors, restricting new entrants.</td>
+          <td>Struggle to compete in sectors with entrenched leaders.</td>
+        </tr>
+        <tr>
+          <td>Huge marketing budgets for brand loyalty.</td>
+          <td>Minimal resources for awareness-building.</td>
+        </tr>
+      </table>
+
+      <p>Existing business models fail to align with the needs of a socially responsible society. They remain focused on
+        profit maximization and capital concentration, neglecting the importance of reducing inequality and promoting
+        inclusivity. There is a global need to create and institutionalize new business models that prioritize social
+        equity alongside profitability. This shift could empower small businesses and address the structural challenges
+        of wealth inequality and market concentration.</p>
+    </div>
+
+    <div class="slide" id="slide3">
+      <h1>The Consumer Companies Business Model (CCBM)</h1>
+      <p>The Consumer Companies Business Model (CCBM) introduces an innovative approach to profit-sharing, emphasizing
+        fairness and transparency. By leveraging modern technologies, such as blockchain, the B2C model ensures that
+        profits are distributed among loyal consumers, employees, and shareholders. This approach transforms consumers
+        from passive participants into active partners, enabling them to share in the profits they help generate.
+        Additionally, the model incorporates best practices to include employees in profit-sharing, enhancing social
+        responsibility.</p>
+
+      <h2>Why Share Profits with Loyal Consumers?</h2>
+      <ul>
+        <li><strong>Consumers Drive Revenue:</strong> By purchasing goods and services, consumers directly ensure the
+          company’s profitability. Current loyalty programs, such as discounts, are temporary and inconsistent, and do
+          not equate to profit-sharing.</li>
+        <li><strong>Unique Value Proposition:</strong> There are no well-known market examples where profits are
+          equitably shared with consumers who are not the members. For example:
+          <ul>
+            <li><strong>Costco:</strong> Generates substantial revenue through membership fees, offering lower prices to
+              members. However, profits are primarily reinvested or allocated to shareholders, with limited direct
+              benefits to consumers.</li>
+            <li><strong>Fairphone:</strong> Shares profits with suppliers to ensure fair labor conditions. This
+              principle could be adapted for consumers.</li>
+            <li><strong>Cooperatives:</strong> Often share profits with members, who are also consumers, demonstrating
+              the feasibility of such a model.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="slide" id="slide4">
+      <h1>Proposed Example of Profit Distribution Structure</h1>
+      <ul>
+        <li><strong>Shareholders (30%):</strong> Traditional profit allocation to reward investment and encourage
+          growth.</li>
+        <li><strong>Reinvestment (30%):</strong> Funds designated for innovation, expansion, and long-term
+          sustainability.</li>
+        <li><strong>Loyal Consumers (30%):</strong> Profit shares allocated to the top 30% of individual consumers (not
+          businesses) based on their purchasing volume.</li>
+        <li><strong>Loyal Employees (10%):</strong> Profit shares based on tenure, rewarding employees who have worked
+          for at least three years.</li>
+      </ul>
+      <p>This model provides a sustainable and inclusive framework that benefits all key stakeholders while promoting
+        fairness, loyalty, and social responsibility. It has the potential to redefine the relationship between
+        businesses and their stakeholders, setting a new standard for equitable profit-sharing.</p>
+    </div>
+
+    <div class="slide" id="slide5">
+      <h1>Comparison of Business Models</h1>
+
+      <h2>Profit Distribution Mechanism</h2>
+      <ul>
+        <li><strong>Consumer Companies:</strong> Profits are distributed to consumers based on their purchasing
+          behavior. Consumers do not need to be shareholders or members; their share of profits depends solely on their
+          loyalty and spending. The amount may vary year by year, making it a dynamic model tailored to consumer
+          engagement.</li>
+        <li><strong>Cooperatives:</strong> Profits are distributed to members based on ownership or investment.
+          Consumers must become members (usually by purchasing shares) to be eligible for profit-sharing. This model is
+          commonly designed for B2B contexts. Profit distribution is tied to membership rather than purchasing activity.
+        </li>
+        <li><strong>Corporations:</strong> Profits are allocated exclusively to shareholders based on the capital owned.
+        </li>
+      </ul>
+
+      <h2>Role of Consumers</h2>
+      <ul>
+        <li><strong>Consumer Companies:</strong> Consumers are passive participants and receive profit shares directly
+          related to their consumption volume. They are rewarded for supporting the business through purchases without
+          ownership obligations.</li>
+        <li><strong>Cooperatives:</strong> Consumers are members who must acquire shares to participate in profit
+          distribution. They often act as both customers and owners.</li>
+        <li><strong>Corporations:</strong> Consumers are not involved in profit distribution or ownership unless they
+          also hold shares.</li>
+      </ul>
+
+      <h2>Level of Involvement in Governance</h2>
+      <ul>
+        <li><strong>Consumer Companies:</strong> Consumers have no direct role in company management. Their
+          participation is limited to being rewarded for their purchases.</li>
+        <li><strong>Cooperatives:</strong> Members actively participate in governance, often voting on key decisions and
+          electing board members.</li>
+        <li><strong>Corporations:</strong> Shareholders actively influence management decisions through voting rights
+          tied to their shareholding.</li>
+      </ul>
+
+      <h2>Loyalty Motivation</h2>
+      <ul>
+        <li><strong>Consumer Companies:</strong> Loyalty is incentivized through profit-sharing. The more a consumer
+          purchases, the greater their financial benefit.</li>
+        <li><strong>Cooperatives:</strong> Loyalty stems from ownership, as members are invested in the cooperative's
+          success. Profit-sharing is typically limited and tied to membership rather than consumer activity.</li>
+        <li><strong>Corporations:</strong> Loyalty is linked to ownership. Shareholders are usually motivated by the
+          returns on their investment rather than consumer participation.</li>
+      </ul>
+
+      <h2>Capital Raising Mechanism</h2>
+      <ul>
+        <li><strong>Consumer Companies:</strong> Capital is raised from shareholders, not consumers.</li>
+        <li><strong>Cooperatives:</strong> Capital comes from member contributions and share purchases.</li>
+        <li><strong>Corporations:</strong> Capital is raised through the sale of shares to investors.</li>
+      </ul>
+
+      <h2>Key Takeaways:</h2>
+      <ul>
+        <li>The Consumer Companies model is more inclusive than traditional corporations and cooperatives. Rewards
+          consumers directly for their loyalty without requiring ownership.</li>
+        <li>Offers a transparent profit-sharing mechanism tied to consumption.</li>
+        <li>Reduces barriers to participation, promoting fairness and social responsibility.</li>
+      </ul>
+    </div>
+
+    <div class="slide" id="slide6">
+      <h1>Why the Consumer Companies Business Model is Innovative</h1>
+      <ul>
+        <li><strong>Empowering Consumers:</strong> Transforms consumers from passive participants into active partners,
+          sharing in the profits they help create without requiring additional investments or complex formalities.</li>
+        <li><strong>Promotes Social Responsibility:</strong> By including consumers and employees in profit-sharing,
+          acknowledging their role in creating goods and services.</li>
+        <li><strong>Motivating Ethical Consumerism:</strong> Encourages consumers to support ethical businesses that
+          value their contributions and establishes a new standard for socially responsible economies.</li>
+        <li><strong>Leveraging Modern Technologies:</strong> Blockchain and Artificial Intelligence may ensure
+          transparency in profit-sharing, building trust among stakeholders.</li>
+        <li><strong>Flexibility and Scalability:</strong> Can operate globally and adapt to various industries in B2C
+          models, such as retail or food industry.</li>
+        <li><strong>Fairness Over Investment:</strong> Rewards loyalty based on spending, not the size of investments,
+          creating an inclusive and equitable profit distribution system. The return may vary year by year.</li>
+      </ul>
+    </div>
+
+    <div class="slide" id="slide7">
+      <h1>Impact of Legalizing Consumer Companies as a Distinct Business Type</h1>
+
+      <h2>Benefits for Consumers</h2>
+      <ul>
+        <li><strong>Legal Protection:</strong> Ensures consumers’ and employees’ rights to profit-sharing are
+          safeguarded by law, preventing companies from unilaterally altering or discontinuing profit-sharing practices.
+        </li>
+        <li><strong>Increased Trust:</strong> Official recognition boosts consumer confidence, as the model would be
+          regulated and monitored by authorities.</li>
+        <li><strong>Transparency:</strong> Legalized Consumer Companies would be required to publish financial reports,
+          showing profit distribution between shareholders, consumers, and employees, ensuring accountability.</li>
+      </ul>
+
+      <h2>Benefits for the Market</h2>
+      <ul>
+        <li><strong>New Competition Dynamics:</strong> The emergence of companies sharing profits with consumers
+          introduces a new level of competition, encouraging fairer and more transparent business models. Large
+          corporations focused solely on shareholder returns would need to adapt or risk losing customers.</li>
+        <li><strong>Economic Impact:</strong> Increases consumer spending, as individuals perceive their purchases as
+          contributing to their financial benefit.</li>
+        <li><strong>Social Benefits:</strong> Companies sharing profits with consumers and employees reduce economic
+          inequality and promote fairer wealth distribution.</li>
+        <li><strong>Global Impact:</strong> May encourage the development of socially just business models globally and
+          drive systemic change towards more equitable economic practices.</li>
+      </ul>
+    </div>
+
+    <div class="slide" id="slide8">
+      <h1>Conclusion: Consumer Companies as a New Business Model</h1>
+      <p>The Consumer Companies model represents an innovative approach to modern business by integrating profit-sharing
+        with consumers, employees, and shareholders in a transparent and equitable manner. By addressing wealth
+        inequality, fostering social justice, and promoting inclusive economic growth, this model would empower
+        consumers as active participants in the economy, turning their loyalty into tangible financial benefits.</p>
+
+      <p>Through legal recognition, the model would establish trust, protect consumer rights, and encourage greater
+        transparency in profit distribution. It may introduce a new level of competition in markets traditionally
+        dominated by corporations focused solely on shareholder profits, enabling smaller businesses to thrive and
+        innovate.</p>
+
+      <p>Globally, the Consumer Companies model has the potential to reduce income inequality, drive ethical business
+        practices, and inspire systemic economic change. By aligning profitability with social responsibility, it may
+        create a sustainable framework for a fairer, more inclusive economy, setting a new standard for socially
+        responsible business.</p>
+    </div>
+  </div>
+
+
+  <div class="nav-arrow left-arrow" id="leftArrow" title="Previous">&#10094;</div>
+  <div class="nav-arrow right-arrow" id="rightArrow" title="Next">&#10095;</div>
+
+  <div class="bottom">
+    <div class="circles-container">
+      <div class="circle">&#9679</div>
+      <div class="circle">&#9675</div>
+      <div class="circle">&#9675</div>
+      <div class="circle">&#9675</div>
+      <div class="circle">&#9675</div>
+      <div class="circle">&#9675</div>
+      <div class="circle">&#9675</div>
+      <div class="circle">&#9675</div>
+    </div>
+  </div>
+
+
+  <script>
+
+    const slides = document.querySelectorAll('.slide');
+    const leftArrow = document.getElementById('leftArrow');
+    const rightArrow = document.getElementById('rightArrow');
+    const hamburger = document.getElementById('hamburger');
+    const sideMenu = document.getElementById('sideMenu');
+    const closeBtn = document.getElementById('closeBtn');
+    const menuLinks = document.querySelectorAll('.side-menu a[data-slide]');
+    const slideContainer = document.querySelector('.slides');
+    const circles = document.querySelectorAll('.circle');
+    const circleIds = document.getElementsByClassName('circles-container')[0].children;
+    let activeHamburger = false;
+
+
+    let currentIndex = 0;
+    let prevIndex = null;
+    const totalSlides = slides.length;
+    const slideWidth = slides[0].offsetWidth;
+    const toralWidth = slideWidth * totalSlides;
+    let offset = 0;
+
+    function showSlide(index) {
+      offset = -index * slideWidth; // Calculate the amount to shift based on the index
+      const slidesContainer = document.querySelector('.slides');
+      slidesContainer.style.transform = `translateX(${offset}px)`;
+
+      circleIds[currentIndex].innerHTML = "&#9679";
+      if (prevIndex !== null && prevIndex !== currentIndex) {
+        circleIds[prevIndex].innerHTML = "&#9675";
+      }
+
+
+      if (index === 0) {
+        leftArrow.style.display = 'none';
+      } else {
+        leftArrow.style.display = 'block';
+      }
+
+      if (index === totalSlides - 2) {
+        rightArrow.style.display = 'none';
+      } else {
+        rightArrow.style.display = 'block';
+      }
+    }
+
+    for (let i = 0; i < circles.length; i++) {
+      circles[i].addEventListener('click', () => {
+        prevIndex = currentIndex;
+        currentIndex = i;
+        showSlide(currentIndex);
+        console.log(`Navigated to slide ${currentIndex}`);
+      });
+    }
+
+
+
+
+    leftArrow.addEventListener('click', () => {
+      prevIndex = currentIndex;
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalSlides - 1;
+      showSlide(currentIndex);
+      console.log(`Navigated to slide ${currentIndex}`);
+    });
+
+    rightArrow.addEventListener('click', () => {
+      prevIndex = currentIndex;
+      currentIndex = (currentIndex < totalSlides - 1) ? currentIndex + 1 : 0;
+      showSlide(currentIndex);
+      console.log(`Navigated to slide ${currentIndex}`);
+    });
+
+
+    hamburger.addEventListener('click', () => {
+      if (activeHamburger) {
+        leftArrow.style.display = 'block';
+        sideMenu.style.width = '0';
+        activeHamburger = false;
+        console.log('Closed side menu');
+      } else {
+        sideMenu.style.width = '300px';
+        activeHamburger = true;
+        leftArrow.style.display = 'none';
+        console.log('Opened side menu');
+      }
+    });
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const index = parseInt(link.getAttribute('data-slide'));
+        if (!isNaN(index) && index >= 0 && index < totalSlides) {
+          currentIndex = index;
+          showSlide(currentIndex);
+          sideMenu.style.width = '0';
+          console.log(`Menu link clicked: Navigated to slide ${currentIndex}`);
+        }
+      });
+    });
+
+
+    showSlide(currentIndex);
+
+  </script>
+</body>
+
+</html>
