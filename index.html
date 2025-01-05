@@ -35,24 +35,19 @@
     }
 
     * {
-      /* margin: 0;
-    padding: 0; */
       box-sizing: border-box;
     }
 
 
-    /* pavadinimas atitrauktas nuo tekto */
     h1 {
       padding-bottom: 5vh;
       padding-top: 2vh;
     }
 
-    /* sub-pavadinimai atitraukti nuo krasto */
     h2 {
       padding-left: 7vw;
     }
 
-    /* iscentruotas tekstas */
     .introduction-text {
       text-align: center;
     }
@@ -131,24 +126,19 @@
 
 
     .slide {
-      /* display: none;  */
       width: 100%;
-      /* Make each slide take full width */
       height: 100vh;
       padding: 80px 60px 10vh 60px;
       flex-shrink: 0;
-      /* Prevent shrinking */
       overflow-y: auto;
       position: relative;
       background-size: cover;
       background-position: center;
       background-color: #1abc9c;
-      /* viena spalva visur */
     }
 
     .slides {
       display: flex;
-      /* Arrange slides horizontally */
       height: 100vh;
       width: 100%;
       scroll-snap-type: x mandatory;
@@ -158,23 +148,6 @@
       transition: transform 0.5s ease-in-out;
 
     }
-
-    /* .active-slide {
-      display: block;
-      opacity: 1;
-    } */
-
-
-    /* #slide0 { background: #1abc9c; }
-    #slide1 { background: #3498db; }
-    #slide2 { background: #9b59b6; }
-    #slide3 { background: #e74c3c; }
-    #slide4 { background: #34495e; }
-    #slide5 { background: #16a085; }
-    #slide6 { background: #8e44ad; }
-    #slide7 { background: #c0392b; }
-    #slide8 { background: #2c3e50; } */
-
 
     .slide h1 {
       margin-bottom: 20px;
@@ -330,24 +303,6 @@
         font-size: 40px;
       }
     }
-
-
-    /* .slide::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .slide::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.1); 
-    }
-    
-    .slide::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.3); 
-      border-radius: 4px;
-    }
-    
-    .slide::-webkit-scrollbar-thumb:hover {
-      background: rgba(255, 255, 255, 0.5); 
-    } */
   </style>
 </head>
 
@@ -730,6 +685,10 @@
         e.preventDefault();
         const index = parseInt(link.getAttribute('data-slide'));
         if (!isNaN(index) && index >= 0 && index < totalSlides) {
+          circleIds[index].innerHTML = "&#9679";
+          if (currentIndex !== null && currentIndex !== index) {
+            circleIds[currentIndex].innerHTML = "&#9675";
+          }
           currentIndex = index;
           showSlide(currentIndex);
           sideMenu.style.width = '0';
